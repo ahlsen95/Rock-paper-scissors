@@ -8,16 +8,40 @@ const rock_img = document.getElementById("rock");
 const paper_img = document.getElementById("paper");
 const scissors_img = document.getElementById("scissors");
 
+//Generates a "choice" for the computer.
 function getComputerChoice(){
   const choices = ["rock","paper","scissors"];
-  var r = Math.floor(Math.random()*3);
-  return (choices[r]);
+  var choice = Math.floor(Math.random()*3);
+  return (choices[choice]);
 }
 
+//Looks up choices from computer and user and finds out who won.
 function game(userInput){
-  console.log("User chose " + userInput);
+  const computerChoice = getComputerChoice();
+  console.log(userInput + "  "  + computerChoice);
+  switch (userInput  + computerChoice){
+    //User wins
+    case "rockscissors":
+    case "paperrock":
+    case "scissorspaper":
+      win();
+      break;
+    //User loses
+    case "rockpaper":
+    case "paperscissors":
+    case "scissorsrock":
+      lose();
+      break;
+    //Draw
+    case "rockrock":
+    case "paperpaper":
+    case "scissorsscissors":
+      draw();
+      break;
+  }
 }
 
+//main
 function main(){
   rock_img.addEventListener("click", function(){
     game("rock");
