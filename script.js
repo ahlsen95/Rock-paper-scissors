@@ -8,6 +8,12 @@ const rock_img = document.getElementById("rock");
 const paper_img = document.getElementById("paper");
 const scissors_img = document.getElementById("scissors");
 
+function getComputerChoice(){
+  const choices = ["rock","paper","scissors"];
+  var r = Math.floor(Math.random()*3);
+  return (choices[r]);
+}
+
 function game(userInput){
   console.log("User chose " + userInput);
 }
